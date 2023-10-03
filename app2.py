@@ -29,7 +29,10 @@ trees = list()
 rf = RandomForestClassifier(n_estimators=10)
 rf.fit(X_train, y_train)
 
-tree.plot_tree(rf.estimators_[8])
+single_tree: DecisionTreeClassifier = rf.estimators_[8]
+print(single_tree.tree_.n_node_samples)
+print(single_tree.tree_.weighted_n_node_samples)
+tree.plot_tree(single_tree)
 plt.show()
 a = 1
 
